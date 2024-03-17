@@ -1,8 +1,8 @@
 #! /bin/bash
 sudo pacman -Syu # обновлить все 
-# включить дробное масштабирование
-   gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']" 
-# fish
+gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']" # включить дробное масштабирование
+
+# ZSH
 
 # добавить AUR
 sudo pacman -S git base-devel --noconfirm
@@ -12,19 +12,25 @@ makepkg -si
 
 cd
 # добавить Flatpak и FlatHub
-   sudo pacman -S flatpak
+   sudo pacman -S flatpak --noconfirm
    flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+# Установить Flatpak пакеты
+   flatpak install flathub org.chromium.Chromium # браузер
+ТГ
+ДС
+
+   
 # настройка блютуз
-   sudo pacman -S tlp # установить tlp
+   sudo pacman -S tlp --noconfirm # установить tlp
    sudo systemctl tlp # добавить tlp в автозагрузку
    # дальше нужно бы найти эти команды
 # установить софт
-   sudo pacman -S neofetch # консольная заставка
-   sudo pacman -S dmidecode # модель ноутбука и его компонентов 
-   sudo pacman -S steam-native-runtime # стим
-   sudo pacman -S chromium # браузер
-   sudo pacman -S telegram-desktop # телеграмм
-   sudo pacman -S tilix # терминал
+   sudo pacman -S neofetch --noconfirm # консольная заставка
+   sudo pacman -S dmidecode --noconfirm # модель ноутбука и его компонентов 
+   sudo pacman -S steam-native-runtime --noconfirm # стим
+   sudo pacman -S chromium --noconfirm # браузер
+   sudo pacman -S telegram-desktop --noconfirm # телеграмм
+   sudo pacman -S tilix --noconfirm # терминал
    sudo pacman -S
    sudo pacman -S
 
