@@ -4,7 +4,7 @@ gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffe
 
 # Сменить шелл на ZSH
    sudo pacman -S zsh --noconfirm
-   chsh /zsh
+   # chsh /zsh... # сделать ZSH оболочкой по умолчанию
    # о май зсш
 
 # Добавить AUR
@@ -31,13 +31,14 @@ cd
    
 # Установить софт
    udo pacman -S nano --noconfirm
-   sudo pacman -S gparted --noconfirm 
+   sudo pacman -S gparted --noconfirm # диски
    sudo pacman -S neofetch --noconfirm # консольная заставка
    sudo pacman -S dmidecode --noconfirm # модель ноутбука и его компонентов 
    sudo pacman -S tilix --noconfirm # терминал
 
 # Расширения
-flatpak install flathub com.mattjakeman.ExtensionManager
+   flatpak install flathub com.mattjakeman.ExtensionManager
+   # команда для установки расширений в терминале наверняка должна существовать
 
 # Стим
   sudo pacman -S steam-native-runtime --noconfirm # сам стим
