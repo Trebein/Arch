@@ -22,7 +22,6 @@ cd
    flatpak install flathub com.discordapp.Discord --noconfirm  # discord
    flatpak install flathub de.shorsh.discord-screenaudio --noconfirm  # для discord
    flatpak install flathub org.telegram.desktop --noconfirm  # telegram
-
    
 # Настройка блютуз
    sudo pacman -S tlp --noconfirm # установить tlp
@@ -37,11 +36,16 @@ cd
    sudo pacman -S dmidecode --noconfirm # модель ноутбука и его компонентов 
    sudo pacman -S tilix --noconfirm # терминал
 
+# Расширения
+flatpak install flathub com.mattjakeman.ExtensionManager
+
 # Стим
   sudo pacman -S steam-native-runtime --noconfirm # сам стим
+  sudo pacman -S wine 
   # протон ге
-  # вайнтрикс
-  # протонтрикс
+  yay -S protontricks
+  yay -S winetricks
+  yay -S python-vdf
    
 # обновить все пакеты, вывести и удалить осиротевшие
    pacman -Syu
