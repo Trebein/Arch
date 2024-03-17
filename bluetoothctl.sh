@@ -1,9 +1,8 @@
+#! /bin/bash
 bluetoothctl
 default-agent
 power on
 scan on
-
-
 
 # Soundcore Space Q45 E8:EE:CC:AD:97:DA
 pair E8:EE:CC:AD:97:DA
