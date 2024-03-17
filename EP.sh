@@ -47,6 +47,7 @@ cd
   yay -S protontricks
   yay -S winetricks
   yay -S python-vdf
+  sudo pacman -S yad # protontricks --gui
    
 # обновить все пакеты, вывести и удалить осиротевшие
    pacman -Syu
