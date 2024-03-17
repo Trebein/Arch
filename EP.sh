@@ -2,18 +2,18 @@
 sudo pacman -Syu # обновлить все 
 gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']" # включить дробное масштабирование
 
-# Сменить шелл на ZSH
-   sudo pacman -S zsh --noconfirm
-   # chsh /zsh... # сделать ZSH оболочкой по умолчанию
-   # о май зсш
-
 # Добавить AUR
 sudo pacman -S git base-devel --noconfirm
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
-
 cd
+
+# Сменить шелл на ZSH
+   sudo pacman -S zsh --noconfirm
+   # chsh /zsh... # сделать ZSH оболочкой по умолчанию
+   # о май зсш
+
 # Добавить Flatpak и FlatHub
    sudo pacman -S flatpak --noconfirm
    flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
