@@ -15,27 +15,33 @@ cd
    sudo pacman -S flatpak --noconfirm
    flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 # Установить Flatpak пакеты
-   flatpak install flathub org.chromium.Chromium # браузер
-ТГ
-ДС
+   flatpak install flathub org.chromium.Chromium --noconfirm  # браузер
+   flatpak install flathub com.discordapp.Discord --noconfirm  # discord
+   flatpak install flathub de.shorsh.discord-screenaudio --noconfirm  # для discord
+   flatpak install flathub org.telegram.desktop --noconfirm  # telegram
 
    
 # настройка блютуз
    sudo pacman -S tlp --noconfirm # установить tlp
    sudo systemctl tlp # добавить tlp в автозагрузку
-   # дальше нужно бы найти эти команды
+   # дальше нужно бы найти эти команды, а пока их нет, вручную
+   sudo pacman -S tlpui --noconfirm
+   
 # установить софт
    sudo pacman -S neofetch --noconfirm # консольная заставка
    sudo pacman -S dmidecode --noconfirm # модель ноутбука и его компонентов 
-   sudo pacman -S steam-native-runtime --noconfirm # стим
-   sudo pacman -S chromium --noconfirm # браузер
-   sudo pacman -S telegram-desktop --noconfirm # телеграмм
    sudo pacman -S tilix --noconfirm # терминал
    sudo pacman -S
    sudo pacman -S
 
 
 
+# Стим
+  sudo pacman -S steam-native-runtime --noconfirm # сам стим
+  протон ге
+  вайнтрикс
+  протонтрикс
+   
 # обновить все пакеты, вывести и удалить осиротевшие
    pacman -Syu
    pacman -Qdt
