@@ -22,7 +22,15 @@ cd
    flatpak install flathub com.discordapp.Discord --noconfirm  # discord
    flatpak install flathub de.shorsh.discord-screenaudio --noconfirm  # для discord
    flatpak install flathub org.telegram.desktop --noconfirm  # telegram
-   
+
+# Snap пакеты
+   git clone https://aur.archlinux.org/snapd.git
+   cd snapd
+   makepkg -si
+   cd
+   sudo systemctl enable --now snapd.socket
+   sudo snap install tradingview #TradingView
+ 
 # Настройка блютуз
    sudo pacman -S tlp --noconfirm # установить tlp
    sudo systemctl tlp # добавить tlp в автозагрузку
