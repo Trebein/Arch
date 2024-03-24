@@ -2,17 +2,10 @@
 sudo pacman -Syu # обновлить все 
 gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']" # включить дробное масштабирование
 
-# Добавить AUR
-sudo pacman -S git base-devel --noconfirm
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
-cd
-
-# Сменить шелл на ZSH
-   sudo pacman -S zsh --noconfirm
-   # chsh /zsh... # сделать ZSH оболочкой по умолчанию
-   # о май зсш
+# Сменить шелл на ZSH. Хотя нужен ли он вообще...
+   # sudo pacman -S zsh --noconfirm
+   # ... # сделать ZSH оболочкой по умолчанию
+   # ... о май зсш
 
 # Добавить Flatpak и FlatHub
    sudo pacman -S flatpak --noconfirm
@@ -22,6 +15,7 @@ cd
    flatpak install flathub com.discordapp.Discord --noconfirm  # discord
    flatpak install flathub de.shorsh.discord-screenaudio --noconfirm  # для discord
    flatpak install flathub org.telegram.desktop --noconfirm  # telegram
+   flatpak install flathub io.atom.Atom # 
 
 # Snap пакеты
    # git clone https://aur.archlinux.org/snapd.git
@@ -30,7 +24,14 @@ cd
    # cd
    # sudo systemctl enable --now snapd.socket
    # sudo snap install tradingview #TradingView
- 
+
+ # Добавить AUR
+sudo pacman -S git base-devel --noconfirm
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+cd
+
 # Настройка блютуз
    sudo pacman -S tlp --noconfirm # установить tlp
    sudo systemctl tlp # добавить tlp в автозагрузку
