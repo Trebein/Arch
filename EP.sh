@@ -7,10 +7,9 @@ gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffe
    # ... # сделать ZSH оболочкой по умолчанию
    # ... о май зсш
 
-# Добавить Flatpak и FlatHub
+# Добавить FlatHub и установить Flatpak пакеты
    sudo pacman -S flatpak --noconfirm
    flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-# Установить Flatpak пакеты
    flatpak install flathub org.chromium.Chromium --noconfirm  # браузер
    flatpak install flathub com.discordapp.Discord --noconfirm  # discord
    flatpak install flathub de.shorsh.discord-screenaudio --noconfirm  # для discord
@@ -33,11 +32,15 @@ makepkg -si
 cd
 
 # Настройка блютуз
+   sudo pacman -S bluez --noconfirm
+   sudo pacman -S bluez-utils --noconfirm
+   sudo pacman -S bluez-deprecated-tools --noconfirm
    sudo pacman -S tlp --noconfirm # установить tlp
    sudo systemctl tlp # добавить tlp в автозагрузку
-   # дальше нужно бы найти эти команды, а пока их нет, вручную в ui
    sudo pacman -S tlpui --noconfirm
-   
+   # дальше нужно бы найти эти команды, а пока их нет, вручную в ui
+   sudo pacman -S Blueman --noconfirm
+
 # Установить софт
    udo pacman -S nano --noconfirm
    sudo pacman -S gparted --noconfirm # диски
