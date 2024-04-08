@@ -5,8 +5,8 @@ power on
 scan on
 
 # Keychron K3 DC:2C:26:42:03:B2
-pair E8:EE:CC:AD:97:DA
-connect E8:EE:CC:AD:97:DA
+pair DC:2C:26:42:03:B2
+connect DC:2C:26:42:03:B2
 
 # Soundcore Space Q45 E8:EE:CC:AD:97:DA
 pair E8:EE:CC:AD:97:DA
