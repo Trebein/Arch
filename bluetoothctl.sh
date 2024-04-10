@@ -13,6 +13,10 @@ connect DC:2C:26:42:03:B2
 pair E8:EE:CC:AD:97:DA
 connect E8:EE:CC:AD:97:DA
 
+# Soundcore Liberty 4 NC E8:EE:CC:C3:8A:A0
+pair E8:EE:CC:C3:8A:A0
+connect E8:EE:CC:C3:8A:A0
+
 # Soundcore Liberty 3 Pro E8:EE:CC:22:EC:B4
 pair E8:EE:CC:22:EC:B4
 connect E8:EE:CC:22:EC:B4
