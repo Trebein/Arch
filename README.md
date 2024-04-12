@@ -1,5 +1,4 @@
-# My scripts
-
+### Running
 ```BASH
 git clone https://github.com/Trebein/Arch
 ```
