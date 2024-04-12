@@ -1,7 +1,13 @@
 # My scripts
 ```BASH
 git clone https://github.com/Trebein/Arch
+```
+```BASH
 cd Arch
+```
+```BASH
 chmod +X EP.sh
+```
+```BASH
 sudo ./EP.sh
 ```
