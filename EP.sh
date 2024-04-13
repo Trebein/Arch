@@ -1,5 +1,5 @@
 #! /bin/bash
-sudo pacman -Syu # обновлить все
+sudo pacman -Syu
 gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']" # включить дробное масштабирование
 
 # Софт
@@ -34,13 +34,13 @@ gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffe
    # ... о май зсш
 
 # FlatHub
-   sudo pacman -S flatpak --noconfirm
+   sudo pacman -S flatpak
    flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-   flatpak install flathub org.chromium.Chromium --noconfirm  # браузер
-   flatpak install flathub com.discordapp.Discord --noconfirm  # discord
-   flatpak install flathub de.shorsh.discord-screenaudio --noconfirm  # для discord
-   flatpak install flathub org.telegram.desktop --noconfirm  # telegram
-   flatpak install flathub io.atom.Atom #
+   flatpak install flathub org.chromium.Chromium
+   flatpak install flathub com.discordapp.Discord
+   flatpak install flathub de.shorsh.discord-screenaudio
+   flatpak install flathub org.telegram.desktop
+   flatpak install flathub io.atom.Atom
    flatpak install flathub io.crow_translate.CrowTranslate
    flatpak install flathub com.librumreader.librum
    
