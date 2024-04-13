@@ -3,11 +3,11 @@ sudo pacman -Syu
 gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']" # включить дробное масштабирование
 
 # Софт
-   Sudo pacman -S nano --noconfirm
-   sudo pacman -S gparted --noconfirm # диски
-   sudo pacman -S neofetch --noconfirm # консольная заставка
-   sudo pacman -S dmidecode --noconfirm # модель ноутбука и его компонентов
-   sudo pacman -S tilix --noconfirm # терминал
+   Sudo pacman -S nano
+   sudo pacman -S gparted
+   sudo pacman -S neofetch
+   sudo pacman -S dmidecode
+   sudo pacman -S tilix
 
 # Звук
    sudo pacman -S pipewire pipewire-pulse pipewire-jack lib32-pipewire gst-plugin-pipewire wireplumber
@@ -19,14 +19,14 @@ gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffe
    systemctl start dhcpcd
 
 # Блютуз
-   sudo pacman -S bluez --noconfirm
-   sudo pacman -S bluez-utils --noconfirm
-   sudo pacman -S bluez-deprecated-tools --noconfirm
-   sudo pacman -S tlp --noconfirm # установить tlp
-   sudo systemctl tlp # добавить tlp в автозагрузку
-   sudo pacman -S tlpui --noconfirm
+   sudo pacman -S Blueman
+   sudo pacman -S bluez
+   sudo pacman -S bluez-utils
+   sudo pacman -S bluez-deprecated-tools
+   sudo pacman -S tlp
+   sudo systemctl tlp
+   sudo pacman -S tlpui
    # дальше нужно бы найти эти команды, а пока их нет, вручную в ui
-   sudo pacman -S Blueman --noconfirm
 
 # ZSH
    # sudo pacman -S zsh --noconfirm
@@ -53,7 +53,7 @@ gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffe
    sudo snap install tradingview #TradingView
 
  # AUR
-   sudo pacman -S git base-devel --noconfirm
+   sudo pacman -S git base-devel
    git clone https://aur.archlinux.org/yay.git
    cd yay
    makepkg -si
