@@ -28,12 +28,12 @@ gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffe
    # дальше нужно бы найти эти команды, а пока их нет, вручную в ui
    sudo pacman -S Blueman --noconfirm
 
-# Сменить шелл на ZSH. Хотя нужен ли он вообще...
+# ZSH
    # sudo pacman -S zsh --noconfirm
    # ... # сделать ZSH оболочкой по умолчанию
    # ... о май зсш
 
-# Добавить FlatHub и установить Flatpak пакеты
+# FlatHub
    sudo pacman -S flatpak --noconfirm
    flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
    flatpak install flathub org.chromium.Chromium --noconfirm  # браузер
@@ -44,26 +44,26 @@ gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffe
    flatpak install flathub io.crow_translate.CrowTranslate
    flatpak install flathub com.librumreader.librum
    
-# Snap пакеты
-   # git clone https://aur.archlinux.org/snapd.git
-   # cd snapd
-   # makepkg -si
-   # cd
-   # sudo systemctl enable --now snapd.socket
-   # sudo snap install tradingview #TradingView
+# Snap
+   git clone https://aur.archlinux.org/snapd.git
+   cd snapd
+   makepkg -si
+   cd
+   sudo systemctl enable --now snapd.socket
+   sudo snap install tradingview #TradingView
 
- # Добавить AUR
+ # AUR
    sudo pacman -S git base-devel --noconfirm
    git clone https://aur.archlinux.org/yay.git
    cd yay
    makepkg -si
    cd
 
-# Расширения
+# Gnome Extensions
    flatpak install flathub com.mattjakeman.ExtensionManager
    # команда для установки расширений в терминале наверняка должна существовать
 
-# Стим
+# Steam
   sudo pacman -S steam-native-runtime --noconfirm # сам стим
   sudo pacman -S wine
   # протон ге
