@@ -2,8 +2,8 @@
 sudo pacman -Syu # обновлить все
 gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']" # включить дробное масштабирование
 
-# Установить софт
-   udo pacman -S nano --noconfirm
+# Софт
+   Sudo pacman -S nano --noconfirm
    sudo pacman -S gparted --noconfirm # диски
    sudo pacman -S neofetch --noconfirm # консольная заставка
    sudo pacman -S dmidecode --noconfirm # модель ноутбука и его компонентов
