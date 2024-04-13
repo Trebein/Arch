@@ -53,11 +53,11 @@ gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffe
    # sudo snap install tradingview #TradingView
 
  # Добавить AUR
-sudo pacman -S git base-devel --noconfirm
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
-cd
+   sudo pacman -S git base-devel --noconfirm
+   git clone https://aur.archlinux.org/yay.git
+   cd yay
+   makepkg -si
+   cd
 
 # Расширения
    flatpak install flathub com.mattjakeman.ExtensionManager
