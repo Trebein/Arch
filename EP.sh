@@ -64,7 +64,7 @@ gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffe
    # команда для установки расширений в терминале наверняка должна существовать
 
 # Steam
-  sudo pacman -S steam-native-runtime --noconfirm # сам стим
+  sudo pacman -S steam-native-runtime
   sudo pacman -S wine
   # протон ге
   yay -S protontricks
@@ -72,7 +72,7 @@ gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffe
   yay -S python-vdf
   sudo pacman -S yad # protontricks --gui
 
-# обновить все пакеты, вывести и удалить осиротевшие
+# обновить все пакеты, вывести и удалить осиротевшие пакеты
    pacman -Syu
    pacman -Qdt
    pacman -Rsn
