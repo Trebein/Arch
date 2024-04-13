@@ -2,23 +2,23 @@
 sudo pacman -Syu
 gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']" # включить дробное масштабирование
 
-# Софт
+# Soft
    Sudo pacman -S nano
    sudo pacman -S gparted
    sudo pacman -S neofetch
    sudo pacman -S dmidecode
    sudo pacman -S tilix
 
-# Звук
+# pipewire
    sudo pacman -S pipewire pipewire-pulse pipewire-jack lib32-pipewire gst-plugin-pipewire wireplumber
    systemctl --user enable --now pipewire pipewire.socket pipewire-pulse wireplumber
 
-# Сеть
+# Wi-Fi
    sudo pacman -S dhcpcd
    systemctl enable dhcpcd
    systemctl start dhcpcd
 
-# Блютуз
+# bluetooth
    sudo pacman -S Blueman
    sudo pacman -S bluez
    sudo pacman -S bluez-utils
