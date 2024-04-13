@@ -2,7 +2,7 @@
 sudo pacman -Syu
 gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']" # включить дробное масштабирование
 
-# Soft
+# software
    Sudo pacman -S nano
    sudo pacman -S gparted
    sudo pacman -S neofetch
