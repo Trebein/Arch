@@ -13,13 +13,12 @@ gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffe
 sudo pacman -S pipewire pipewire-pulse pipewire-jack lib32-pipewire gst-plugin-pipewire wireplumber
 systemctl --user enable --now pipewire pipewire.socket pipewire-pulse wireplumber
 
-#
+# Сеть
    sudo pacman -S dhcpcd
    systemctl enable dhcpcd
    systemctl start dhcpcd
 
-
-   # Настройка блютуз
+# Блютуз
    sudo pacman -S bluez --noconfirm
    sudo pacman -S bluez-utils --noconfirm
    sudo pacman -S bluez-deprecated-tools --noconfirm
