@@ -79,4 +79,3 @@ gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffe
 
 # скрипт завершен
    echo COMPLETED
-
