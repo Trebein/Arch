@@ -10,8 +10,8 @@ gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffe
    sudo pacman -S tilix --noconfirm # терминал
 
 # Звук
-sudo pacman -S pipewire pipewire-pulse pipewire-jack lib32-pipewire gst-plugin-pipewire wireplumber
-systemctl --user enable --now pipewire pipewire.socket pipewire-pulse wireplumber
+   sudo pacman -S pipewire pipewire-pulse pipewire-jack lib32-pipewire gst-plugin-pipewire wireplumber
+   systemctl --user enable --now pipewire pipewire.socket pipewire-pulse wireplumber
 
 # Сеть
    sudo pacman -S dhcpcd
