@@ -39,6 +39,7 @@ gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffe
    flatpak install flathub org.telegram.desktop --noconfirm  # telegram
    flatpak install flathub io.atom.Atom #
    flatpak install flathub io.crow_translate.CrowTranslate
+   flatpak install flathub fr.nytuo.cosmiccomics
 
 # Snap пакеты
    # git clone https://aur.archlinux.org/snapd.git
