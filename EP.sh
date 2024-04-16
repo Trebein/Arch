@@ -70,12 +70,13 @@ sudo pacman -R gnome-tour
    # команда для установки расширений в терминале наверняка должна существовать
 
 # Steam
-  sudo pacman -S steam-native-runtime
-  sudo pacman -S wine
+  # пожалуй не сильно хочется качать говно из аура скриптом
+  # sudo pacman -S steam-native-runtime
+  # sudo pacman -S wine
   # протон ге
-  yay -S protontricks
-  yay -S winetricks
-  yay -S python-vdf
+  # yay -S protontricks
+  # yay -S winetricks
+  # yay -S python-vdf
   sudo pacman -S yad # protontricks --gui
 
 # обновить все пакеты, вывести и удалить осиротевшие пакеты
