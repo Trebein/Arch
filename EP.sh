@@ -4,7 +4,6 @@ gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffe
 
 # remove useless pre-installed packages gnome shell
 sudo pacman -R gnome-tour
-sudo pacman -R Totem
 
 # software
    Sudo pacman -S nano
