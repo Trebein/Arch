@@ -11,6 +11,8 @@ sudo pacman -R gnome-tour
    sudo pacman -S neofetch
    sudo pacman -S dmidecode
    sudo pacman -S tilix
+   sudo pacman -S p7zip
+
 
 # pipewire
    sudo pacman -S pipewire pipewire-pulse pipewire-jack lib32-pipewire gst-plugin-pipewire wireplumber
