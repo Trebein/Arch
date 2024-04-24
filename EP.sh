@@ -6,7 +6,7 @@ gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffe
 sudo pacman -R gnome-tour
 
 # software
-   Sudo pacman -S nano gparted neofetch dmidecode tilix p7zip
+   Sudo pacman -S nano gparted neofetch dmidecode tilix xarchiver
 
 # pipewire
    sudo pacman -S pipewire pipewire-pulse pipewire-jack lib32-pipewire gst-plugin-pipewire wireplumber
