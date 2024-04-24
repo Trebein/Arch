@@ -6,13 +6,7 @@ gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffe
 sudo pacman -R gnome-tour
 
 # software
-   Sudo pacman -S nano
-   sudo pacman -S gparted
-   sudo pacman -S neofetch
-   sudo pacman -S dmidecode
-   sudo pacman -S tilix
-   sudo pacman -S p7zip
-
+   Sudo pacman -S nano gparted neofetch dmidecode tilix p7zip
 
 # pipewire
    sudo pacman -S pipewire pipewire-pulse pipewire-jack lib32-pipewire gst-plugin-pipewire wireplumber
@@ -24,14 +18,10 @@ sudo pacman -R gnome-tour
    systemctl start dhcpcd
 
 # bluetooth
-   sudo pacman -S Blueman
-   sudo pacman -S bluez
-   sudo pacman -S bluez-utils
-   sudo pacman -S bluez-deprecated-tools
-   sudo pacman -S tlp
+   sudo pacman -S Blueman bluez bluez-utils bluez-deprecated-tools tlp
    sudo systemctl tlp
+    # дальше нужно бы найти эти команды, а пока их нет, вручную в ui
    sudo pacman -S tlpui
-   # дальше нужно бы найти эти команды, а пока их нет, вручную в ui
 
 # ZSH
    # sudo pacman -S zsh --noconfirm
@@ -72,7 +62,7 @@ sudo pacman -R gnome-tour
    # команда для установки расширений в терминале наверняка должна существовать
 
 # Steam
-  # пожалуй не сильно хочется качать говно из аура скриптом
+  # пожалуй не сильно хочется качать из аура скриптом
   # sudo pacman -S steam-native-runtime
   # sudo pacman -S wine
   # протон ге
