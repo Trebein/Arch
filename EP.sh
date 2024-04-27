@@ -31,7 +31,6 @@ sudo pacman -R gnome-tour
 # FlatHub
    sudo pacman -S flatpak
    flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-   
    flatpak install flathub org.chromium.Chromium
    flatpak install flathub com.discordapp.Discord
    flatpak install flathub de.shorsh.discord-screenaudio
