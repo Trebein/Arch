@@ -1,81 +1,52 @@
+baobab
+epiphany
+evince
+Totem
+
 # amd-ucode
-# baobab
-# base
-# base-devel
-# blueman
-# bluez-deprecated-tools
-# bluez-utils
-# dhcpcd
-# dmidecode
-# efibootmgr
-# epiphany
-# evince
-# fuse2
-# gdm
-# git
-# gparted
-# grilo-plugins
-# grub
-# gvfs
-# gvfs-afc
-# gvfs-goa
-# gvfs-google
-# gvfs-gphoto2
-# gvfs-mtp
-# gvfs-nfs
-# gvfs-smb
-# htop
-# iwd
-# libreoffice-fresh
-# libva-mesa-driver
-# linux
-# linux-firmware
+blueman
+bluez-deprecated-tools
+bluez-utils
+dhcpcd
+dmidecode
+git
+gparted
+htop
+iwd
+libreoffice-fresh
 # loupe
 # malcontent
-# nano
+nano
 # nautilus
-# neofetch
+neofetch
 # network-manager-applet
-# networkmanager
-# openrgb
+networkmanager
+openrgb
 # oca
 # p7zip
-# peek
-# piper
+piper
 # pipewire-jack
-# protontricks
-# protonup-qt
+protontricks
+protonup-qt
 # rygel
 # simple-scan
 # smartmontools
-# snapd
+snapd
 # snapshot
-# speedtest-cli
-# steam-native-runtime
+speedtest-cli
 # sushi
 # tecla
-# tilix
-# tlp
-# tlpui
+tilix
+tlp
+tlpui
 # totem
 # tracker3-miners
-# vim
-# vlc
+vlc
 # vulkan-radeon
 # wget
-# wine
+wine
 # wireless_tools
-# xarchiver
-# xdg-desktop-portal-gnome
-# xdg-user-dirs-gtk
-# xdg-utils
-# xf86-video-amdgpu
-# xf86-video-ati
-# xorg-xdpyinfo
-# xorg-xinit
-# yad
-# yay
-# yay-debug
-# yelp
-# zram-generator
-# zsh
+xarchiver
+yad
+yay
+zsh
