@@ -64,6 +64,7 @@ sudo pacman -R gnome-tour
   # пожалуй не сильно хочется качать из аура скриптом
   # sudo pacman -S steam-native-runtime
   # sudo pacman -S wine
+  # sudo pacman -S protonup-qt
   # протон ге
   # yay -S protontricks
   # yay -S winetricks
