@@ -2,8 +2,8 @@ baobab
 epiphany
 evince
 Totem
+ygel
 
-# amd-ucode
 blueman
 bluez-deprecated-tools
 bluez-utils
@@ -14,38 +14,20 @@ gparted
 htop
 iwd
 libreoffice-fresh
-# loupe
-# malcontent
 nano
-# nautilus
 neofetch
-# network-manager-applet
-networkmanager
 openrgb
-# oca
-# p7zip
 piper
-# pipewire-jack
+pipewire-jack
 protontricks
 protonup-qt
-# rygel
-# simple-scan
-# smartmontools
-snapd
-# snapshot
+snapshot
 speedtest-cli
-# sushi
-# tecla
 tilix
 tlp
 tlpui
-# totem
-# tracker3-miners
 vlc
-# vulkan-radeon
-# wget
 wine
-# wireless_tools
 xarchiver
 yad
 yay
