@@ -13,11 +13,11 @@ scan on
 # Keychron K3 DC:2C:26:42:03:B2
 agent KeyboardOnly
 default-agent
-trust DC:2C:26:42:03:B2
 pair DC:2C:26:42:03:B2
+trust DC:2C:26:42:03:B2
 connect DC:2C:26:42:03:B2
 
-# Soundcore Space Q45 E8:EE:CC:AD:97:DA
+# Soundcore Space Q45 E8:EE:CC:AD:97: quitDA
 pair E8:EE:CC:AD:97:DA
 connect E8:EE:CC:AD:97:DA
 
