@@ -1,11 +1,19 @@
 #! /bin/bash
 bluetoothctl
-agent on
-default-agent
 power on
+pairable on
+scan on
+
+
+# agent on
+# default-agent
+
 scan on
 
 # Keychron K3 DC:2C:26:42:03:B2
+agent KeyboardOnly
+default-agent
+trust DC:2C:26:42:03:B2
 pair DC:2C:26:42:03:B2
 connect DC:2C:26:42:03:B2
 
