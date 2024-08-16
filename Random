@@ -22,7 +22,7 @@ ls = list(str4)
 # Тщательно перемешиваем список
 random.shuffle(ls)
 # Извлекаем из списка 12 произвольных значений
-psw = ''.join([random.choice(ls) for x in range(16)])
+psw = ''.join([random.choice(ls) for x in range(18)])
 # Пароль готов
 print(psw)
 # Выведет: '1t9G4YPsQ5L7
