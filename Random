@@ -7,11 +7,10 @@ import random
 # Щепотка цифр
 str1 = '123456789'
 # Щепотка строчных букв
-str2 = '9876421'
+str2 = 'qwertyuiopasdfghjklzxcvbnm'
 # Щепотка прописных букв. Готовится преобразованием str2 в верхний     регистр.
 str3 = str2.upper()
-print(str3)
-# Выведет: 'QWERTYUIOPASDFGHJKLZXCVBNM'
+str4 = '!"#$%&()?@[]^'
 
 # Соединяем все строки в одну
 str4 = str1+str2+str3
