@@ -13,12 +13,12 @@ str3 = str2.upper()
 str4 = '!"#$%&()?@[]^'
 
 # Соединяем все строки в одну
-str4 = str1+str2+str3
+str4 = str1+str2+str3+str4
 print(str4)
 # Выведет: '123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'
 
 # Преобразуем получившуюся строку в список
-ls = list(str4)
+ls = list(str5)
 # Тщательно перемешиваем список
 random.shuffle(ls)
 # Извлекаем из списка 12 произвольных значений
