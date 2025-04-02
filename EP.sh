@@ -1,12 +1,18 @@
 #!/bin/bash
-set -eo pipefail
+set -euo pipefail
 
 # ==================== ФУНКЦИИ ====================
 status_msg() {
     echo -e "\n\033[1;34m==> \033[1;37m$1\033[0m"
 }
 
-
+log_error() {
+    local timestamp=$(date +"%Y-%m-%d %T")
+    local message="$1"
+    local log_file="$HOME/EPSH_errors.log"
+    echo "[$timestamp] ОШИБКА: $message" >> "$log_file"
+    echo -e "\033[1;31mОШИБКА: $message\033[0m" >&2
+}
 
 # ========== ГРУППИРОВКА ПАКЕТОВ В МАССИВЫ ==========
 # Основные утилиты
@@ -15,7 +21,7 @@ PACKAGES_MAIN=(nano gparted neofetch dmidecode tilix xarchiver)
 PACKAGES_PIPEWIRE=(pipewire pipewire-pulse pipewire-jack lib32-pipewire gst-plugin-pipewire wireplumber)
 # Сетевые утилиты
 PACKAGES_NETWORK=(dhcpcd)
-# Bluetooth и управление питанием
+# Bluetooth
 PACKAGES_BLUETOOTH=(blueman bluez bluez-utils bluez-deprecated-tools tlp)
 # Дополнительное ПО
 PACKAGES_GAME=(steam-native-runtime wine protonup-qt yad)
@@ -39,62 +45,63 @@ FLATPAK_APPS=(
 # ============== ОСНОВНОЙ СКРИПТ ==============
 # Обновление системы
 status_msg "Обновление системы..."
-sudo pacman -Syu --noconfirm
+sudo pacman -Syu --noconfirm || log_error "Не удалось обновить систему"
 
 # Настройка GNOME
 status_msg "Настройка GNOME..."
-gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
-sudo pacman -R --noconfirm gnome-tour baobab epiphany evince totem
+gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']" || log_error "Не удалось настроить GNOME"
+# Удаление ненужных предустановленных пакетов GNOME
+sudo pacman -R --noconfirm gnome-tour baobab epiphany evince totem || log_error "Не удалось удалить ненужные предустановленные пакеты GNOME"
 
 # Установка основного ПО
 status_msg "Установка основных утилит..."
-sudo pacman -S --noconfirm "${PACKAGES_MAIN[@]}"
+sudo pacman -S --noconfirm "${PACKAGES_MAIN[@]}" || log_error "Не удалось установить основные утилиты"
 
 # Настройка звука (PipeWire)
 status_msg "Настройка звуковой системы..."
-sudo pacman -S --noconfirm "${PACKAGES_PIPEWIRE[@]}"
-systemctl --user enable --now pipewire{,-pulse}.socket wireplumber
+sudo pacman -S --noconfirm "${PACKAGES_PIPEWIRE[@]}" || log_error "Не удалось установить звуковые пакеты"
+systemctl --user enable --now pipewire{,-pulse}.socket wireplumber || log_error "Не удалось запустить звуковые службы"
 
 # Настройка сети
 status_msg "Настройка сети..."
-sudo pacman -S --noconfirm "${PACKAGES_NETWORK[@]}"
-sudo systemctl enable --now dhcpcd
+sudo pacman -S --noconfirm "${PACKAGES_NETWORK[@]}" || log_error "Не удалось установить сетевые пакеты"
+sudo systemctl enable --now dhcpcd || log_error "Не удалось запустить сетевую службу dhcpcd"
 
-# Установка Bluetooth и TLP
-status_msg "Установка Bluetooth и TLP..."
-sudo pacman -S --noconfirm "${PACKAGES_BLUETOOTH[@]}"
-sudo systemctl enable --now tlp
+# Настройка Bluetooth
+status_msg "Установка пакетов для Bluetooth"
+sudo pacman -S --noconfirm "${PACKAGES_BLUETOOTH[@]}" || log_error "Не удалось установить пакеты для Bluetooth"
+sudo systemctl enable --now tlp || log_error "Не удалось запустить TLP"
 
 # Установка дополнительного ПО
 status_msg "Установка дополнительного ПО..."
-sudo pacman -S --noconfirm "${PACKAGES_GAME[@]}"
+sudo pacman -S --noconfirm "${PACKAGES_GAME[@]}" || log_error "Не удалось установить дополнительные пакеты"
 
 # Установка Flatpak
 status_msg "Настройка Flatpak..."
-sudo pacman -S --noconfirm flatpak
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+sudo pacman -S --noconfirm flatpak || log_error "Не удалось установить Flatpak"
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo || log_error "Не удалось добавить репозиторий Flatpak"
 
 status_msg "Установка Flatpak-приложений..."
 for app in "${FLATPAK_APPS[@]}"; do
-    flatpak install -y flathub "$app" || echo "Не удалось установить $app"
+    flatpak install -y flathub "$app" || log_error "Не удалось установить Flatpak-приложение $app"
 done
 
 # Установка Snap
 status_msg "Установка Snap..."
-git clone https://aur.archlinux.org/snapd.git
-cd snapd && makepkg -si --noconfirm && cd
-sudo systemctl enable --now snapd.socket
-sudo snap install tradingview --noconfirm
+git clone https://aur.archlinux.org/snapd.git || log_error "Не удалось клонировать репозиторий snapd"
+cd snapd && makepkg -si --noconfirm && cd || log_error "Не удалось собрать и установить snapd"
+sudo systemctl enable --now snapd.socket || log_error "Не удалось запустить snapd.socket"
+sudo snap install tradingview --noconfirm || log_error "Не удалось установить tradingview через snap"
 
 # Установка YAY
 status_msg "Установка YAY..."
-sudo pacman -S --noconfirm git base-devel
-git clone https://aur.archlinux.org/yay.git
-cd yay && makepkg -si --noconfirm && cd
+sudo pacman -S --noconfirm git base-devel || log_error "Не удалось установить зависимости для YAY"
+git clone https://aur.archlinux.org/yay.git || log_error "Не удалось клонировать репозиторий YAY"
+cd yay && makepkg -si --noconfirm && cd || log_error "Не удалось собрать и установить YAY"
 
 # Финализация
 status_msg "Завершающие действия..."
-sudo pacman -Syu --noconfirm
-sudo pacman -Qdtq | sudo pacman -Rsn --noconfirm -
+sudo pacman -Syu --noconfirm || log_error "Не удалось выполнить финальное обновление"
+sudo pacman -Qdtq | sudo pacman -Rsn --noconfirm - || log_error "Не удалось удалить ненужные пакеты"
 
 echo -e "\n\033[1;32mСистема готова к работе!\033[0m"
