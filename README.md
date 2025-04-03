@@ -9,5 +9,5 @@ cd Arch
 chmod +X EP.sh
 ```
 ```BASH
-sudo ./EP.sh
+sudo -v && ./EP.sh
 ```
