@@ -24,7 +24,7 @@ PACKAGES_NETWORK=(dhcpcd)
 # Bluetooth
 PACKAGES_BLUETOOTH=(blueman bluez bluez-utils bluez-deprecated-tools tlp)
 # Дополнительное ПО
-PACKAGES_GAME=(steam-native-runtime wine protonup-qt yad)
+PACKAGES_GAME=(steam-native-runtime lutris wine yad)
 
 # Flatpak приложения
 FLATPAK_APPS=(
@@ -36,7 +36,6 @@ FLATPAK_APPS=(
     io.crow_translate.CrowTranslate
     com.librumreader.librum
     com.obsproject.Studio
-    net.lutris.Lutris
     org.keepassxc.KeePassXC
     com.nextcloud.desktopclient.nextcloud
     me.kozec.syncthingtk
@@ -47,20 +46,23 @@ FLATPAK_APPS=(
 status_msg "Обновление системы..."
 sudo pacman -Syu --noconfirm || log_error "Не удалось обновить систему"
 
-# Настройка GNOME
-status_msg "Настройка GNOME..."
-gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']" || log_error "Не удалось настроить GNOME"
-# Удаление ненужных предустановленных пакетов GNOME
-sudo pacman -R --noconfirm gnome-tour baobab epiphany evince totem || log_error "Не удалось удалить ненужные предустановленные пакеты GNOME"
+# Установка Snap
+status_msg "Установка Snap..."
+git clone https://aur.archlinux.org/snapd.git || log_error "Не удалось клонировать репозиторий snapd"
+cd snapd && makepkg -si --noconfirm && cd || log_error "Не удалось собрать и установить snapd"
+sudo systemctl enable --now snapd.socket || log_error "Не удалось запустить snapd.socket"
+sudo snap install tradingview || log_error "Не удалось установить tradingview через snap"
 
-# Установка основного ПО
-status_msg "Установка основных утилит..."
-sudo pacman -S --noconfirm "${PACKAGES_MAIN[@]}" || log_error "Не удалось установить основные утилиты"
+# Установка YAY
+status_msg "Установка YAY..."
+sudo pacman -S --noconfirm git base-devel || log_error "Не удалось установить зависимости для YAY"
+git clone https://aur.archlinux.org/yay.git || log_error "Не удалось клонировать репозиторий YAY"
+cd yay && makepkg -si --noconfirm && cd || log_error "Не удалось собрать и установить YAY"
 
 # Настройка звука (PipeWire)
 status_msg "Настройка звуковой системы..."
 sudo pacman -S --noconfirm "${PACKAGES_PIPEWIRE[@]}" || log_error "Не удалось установить звуковые пакеты"
-systemctl --user enable --now pipewire{,-pulse}.socket wireplumber || log_error "Не удалось запустить звуковые службы"
+systemctl --user enable --now pipewire pipewire.socket pipewire-pulse wireplumber || log_error "Не удалось запустить звуковые службы"
 
 # Настройка сети
 status_msg "Настройка сети..."
@@ -71,6 +73,16 @@ sudo systemctl enable --now dhcpcd || log_error "Не удалось запус�
 status_msg "Установка пакетов для Bluetooth"
 sudo pacman -S --noconfirm "${PACKAGES_BLUETOOTH[@]}" || log_error "Не удалось установить пакеты для Bluetooth"
 sudo systemctl enable --now tlp || log_error "Не удалось запустить TLP"
+
+# Настройка GNOME
+status_msg "Настройка GNOME..."
+gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']" || log_error "Не удалось настроить GNOME"
+# Удаление ненужных предустановленных пакетов GNOME
+sudo pacman -R --noconfirm gnome-tour baobab epiphany evince totem || log_error "Не удалось удалить ненужные предустановленные пакеты GNOME"
+
+# Установка основного ПО
+status_msg "Установка основных утилит..."
+sudo pacman -S --noconfirm "${PACKAGES_MAIN[@]}" || log_error "Не удалось установить основные утилиты"
 
 # Установка дополнительного ПО
 status_msg "Установка дополнительного ПО..."
@@ -86,22 +98,9 @@ for app in "${FLATPAK_APPS[@]}"; do
     flatpak install -y flathub "$app" || log_error "Не удалось установить Flatpak-приложение $app"
 done
 
-# Установка Snap
-status_msg "Установка Snap..."
-git clone https://aur.archlinux.org/snapd.git || log_error "Не удалось клонировать репозиторий snapd"
-cd snapd && makepkg -si --noconfirm && cd || log_error "Не удалось собрать и установить snapd"
-sudo systemctl enable --now snapd.socket || log_error "Не удалось запустить snapd.socket"
-sudo snap install tradingview --noconfirm || log_error "Не удалось установить tradingview через snap"
-
-# Установка YAY
-status_msg "Установка YAY..."
-sudo pacman -S --noconfirm git base-devel || log_error "Не удалось установить зависимости для YAY"
-git clone https://aur.archlinux.org/yay.git || log_error "Не удалось клонировать репозиторий YAY"
-cd yay && makepkg -si --noconfirm && cd || log_error "Не удалось собрать и установить YAY"
-
 # Финализация
 status_msg "Завершающие действия..."
 sudo pacman -Syu --noconfirm || log_error "Не удалось выполнить финальное обновление"
 sudo pacman -Qdtq | sudo pacman -Rsn --noconfirm - || log_error "Не удалось удалить ненужные пакеты"
 
-echo -e "\n\033[1;32mСистема готова к работе!\033[0m"
+echo -e "\n\033[1;32mСистема готова к работеэ.\033[0m"
