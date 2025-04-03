@@ -9,7 +9,7 @@ status_msg() {
 log_error() {
     local timestamp=$(date +"%Y-%m-%d %T")
     local message="$1"
-    local log_file="$HOME/EPSH_errors.log"
+    local log_file="$HOME/EPSH.log"
     echo "[$timestamp] ОШИБКА: $message" >> "$log_file"
     echo -e "\033[1;31mОШИБКА: $message\033[0m" >&2
 }
