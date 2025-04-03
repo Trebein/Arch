@@ -3,7 +3,7 @@
 git clone https://github.com/Trebein/Arch
 ```
 ```BASH
-cd Arch
+sudo cp /Arch/EP.sh /
 ```
 ```BASH
 chmod +X EP.sh
