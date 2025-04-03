@@ -49,7 +49,7 @@ sudo pacman -Syu --noconfirm || log_error "Не удалось обновить 
 # Установка Snap
 status_msg "Установка Snap..."
 git clone https://aur.archlinux.org/snapd.git || log_error "Не удалось клонировать репозиторий snapd"
-cd snapd && makepkg -si --noconfirm && cd || log_error "Не удалось собрать и установить snapd"
+cd snapd && makepkg -si --noconfirm && cd ~ || log_error "Не удалось собрать и установить snapd"
 sudo systemctl enable --now snapd.socket || log_error "Не удалось запустить snapd.socket"
 sudo snap install tradingview || log_error "Не удалось установить tradingview через snap"
 
@@ -57,7 +57,7 @@ sudo snap install tradingview || log_error "Не удалось установи
 status_msg "Установка YAY..."
 sudo pacman -S --noconfirm git base-devel || log_error "Не удалось установить зависимости для YAY"
 git clone https://aur.archlinux.org/yay.git || log_error "Не удалось клонировать репозиторий YAY"
-cd yay && makepkg -si --noconfirm && cd || log_error "Не удалось собрать и установить YAY"
+cd yay && makepkg -si --noconfirm && cd ~ || log_error "Не удалось собрать и установить YAY"
 
 # Настройка звука (PipeWire)
 status_msg "Настройка звуковой системы..."
@@ -78,7 +78,20 @@ sudo systemctl enable --now tlp || log_error "Не удалось запусти
 status_msg "Настройка GNOME..."
 gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']" || log_error "Не удалось настроить GNOME"
 # Удаление ненужных предустановленных пакетов GNOME
-sudo pacman -R --noconfirm gnome-tour baobab epiphany evince totem || log_error "Не удалось удалить ненужные предустановленные пакеты GNOME"
+status_msg "Проверка и удаление ненужных пакетов GNOME..."
+GNOME_PACKAGES_TO_REMOVE=(gnome-tour baobab epiphany evince totem)
+INSTALLED_PKGS=()
+for pkg in "${GNOME_PACKAGES_TO_REMOVE[@]}"; do
+    if pacman -Q "$pkg" &>/dev/null; then
+        INSTALLED_PKGS+=("$pkg")
+    fi
+done
+if [ ${#INSTALLED_PKGS[@]} -gt 0 ]; then
+    sudo pacman -R --noconfirm "${INSTALLED_PKGS[@]}" || \
+        log_error "Не удалось удалить пакеты GNOME"
+else
+    echo "Ненужные пакеты GNOME не установлены, пропускаем удаление"
+fi
 
 # Установка основного ПО
 status_msg "Установка основных утилит..."
@@ -103,4 +116,4 @@ status_msg "Завершающие действия..."
 sudo pacman -Syu --noconfirm || log_error "Не удалось выполнить финальное обновление"
 sudo pacman -Qdtq | sudo pacman -Rsn --noconfirm - || log_error "Не удалось удалить ненужные пакеты"
 
-echo -e "\n\033[1;32mСистема готова к работеэ.\033[0m"
+echo -e "\n\033[1;32mСистема готова к работе.\033[0m"
