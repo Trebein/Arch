@@ -30,7 +30,7 @@ PACKAGES_GAME=(steam-native-runtime lutris wine yad)
 FLATPAK_APPS=(
     org.chromium.Chromium
     com.discordapp.Discord
-    de.shorsh.discord-screenaudio
+    me.kozec.syncthingtk
     org.telegram.desktop
     md.obsidian.Obsidian
     io.crow_translate.CrowTranslate
@@ -38,7 +38,8 @@ FLATPAK_APPS=(
     com.obsproject.Studio
     org.keepassxc.KeePassXC
     com.nextcloud.desktopclient.nextcloud
-    me.kozec.syncthingtk
+    io.github.shiftey.Desktop
+    de.shorsh.discord-screenaudio
 )
 
 # ============== ОСНОВНОЙ СКРИПТ ==============
