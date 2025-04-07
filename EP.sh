@@ -50,25 +50,25 @@ sudo pacman -Syu --noconfirm || log_error "Не удалось обновить 
 # Установка Snap
 status_msg "Установка Snap..."
 git clone https://aur.archlinux.org/snapd.git || log_error "Не удалось клонировать репозиторий snapd"
-cd snapd && makepkg -si --noconfirm && cd ~ || log_error "Не удалось собрать и установить snapd"
-sudo systemctl enable --now snapd.socket || log_error "Не удалось запустить snapd.socket"
-sudo snap install tradingview || log_error "Не удалось установить tradingview через snap"
+# cd snapd && makepkg -si --noconfirm && cd ~ || log_error "Не удалось собрать и установить snapd"
+# sudo systemctl enable --now snapd.socket || log_error "Не удалось запустить snapd.socket"
+# sudo snap install tradingview || log_error "Не удалось установить tradingview через snap"
 
 # Установка YAY
 status_msg "Установка YAY..."
 sudo pacman -S --noconfirm git base-devel || log_error "Не удалось установить зависимости для YAY"
 git clone https://aur.archlinux.org/yay.git || log_error "Не удалось клонировать репозиторий YAY"
-cd yay && makepkg -si --noconfirm && cd ~ || log_error "Не удалось собрать и установить YAY"
+# cd yay && makepkg -si --noconfirm && cd ~ || log_error "Не удалось собрать и установить YAY"
 
 # Настройка звука (PipeWire)
 status_msg "Настройка звуковой системы..."
 sudo pacman -S --noconfirm "${PACKAGES_PIPEWIRE[@]}" || log_error "Не удалось установить звуковые пакеты"
-systemctl --user enable --now pipewire pipewire.socket pipewire-pulse wireplumber || log_error "Не удалось запустить звуковые службы"
+# systemctl --user enable --now pipewire pipewire.socket pipewire-pulse wireplumber || log_error "Не удалось запустить звуковые службы"
 
 # Настройка сети
 status_msg "Настройка сети..."
 sudo pacman -S --noconfirm "${PACKAGES_NETWORK[@]}" || log_error "Не удалось установить сетевые пакеты"
-sudo systemctl enable --now dhcpcd || log_error "Не удалось запустить сетевую службу dhcpcd"
+# sudo systemctl enable --now dhcpcd || log_error "Не удалось запустить сетевую службу dhcpcd"
 
 # Настройка Bluetooth
 status_msg "Установка пакетов для Bluetooth"
